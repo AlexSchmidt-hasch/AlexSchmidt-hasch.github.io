@@ -172,15 +172,15 @@ h1, h2, h3,
   flex-wrap: wrap;
 }
 
-.cta-secondary {
-  background: transparent;
-  border: 2px solid #7dd3fc;
-  color: #7dd3fc;
+a.cta-secondary {
+  background: transparent !important;
+  border: 2px solid #7dd3fc !important;
+  color: #7dd3fc !important;
 }
 
-.cta-secondary:hover {
-  background-color: #7dd3fc;
-  color: #0e0e12;
+a.cta-secondary:hover {
+  background-color: #7dd3fc !important;
+  color: #0e0e12 !important;
 }
 
 .skills-strip {
