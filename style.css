@@ -1,4 +1,4 @@
-﻿* {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -163,6 +163,24 @@ h1, h2, h3,
 
 .cta-button:hover {
   background-color: #a0e0fc;
+}
+
+.cta-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-secondary {
+  background: transparent;
+  border: 2px solid #7dd3fc;
+  color: #7dd3fc;
+}
+
+.cta-secondary:hover {
+  background-color: #7dd3fc;
+  color: #0e0e12;
 }
 
 .skills-strip {
@@ -415,15 +433,4 @@ footer {
   .projects-wrapper {
     padding: 3rem 1.5rem;
   }
-}
-.cta-group {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.cta-secondary {
-  background: transparent;
-  border: 2px solid currentColor;
 }
