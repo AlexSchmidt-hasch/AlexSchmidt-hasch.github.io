@@ -15,7 +15,6 @@ h1, h2, h3,
 .nav-name {
   font-family: 'Space Grotesk', 'Segoe UI', Arial, sans-serif;
 }
-
 .navbar {
   display: flex;
   justify-content: space-between;
