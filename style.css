@@ -90,7 +90,7 @@ h1, h2, h3,
 .hero-caption {
   margin-top: 0.75rem;
   font-size: 0.85rem;
-  color: #6a6a72;
+  color: #9797a1;
   text-align: center;
 }
 
@@ -198,7 +198,7 @@ a.cta-secondary:hover {
 footer {
   text-align: center;
   padding: 2rem;
-  color: #6a6a72;
+  color: #9797a1;
   font-size: 0.85rem;
 }
 /* About page */
@@ -256,7 +256,7 @@ footer {
 
 .skill-label {
   font-size: 0.75rem;
-  color: #6a6a72;
+  color: #9797a1;
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
@@ -326,7 +326,7 @@ footer {
 
 .contact-type {
   font-size: 0.8rem;
-  color: #6a6a72;
+  color: #9797a1;
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
