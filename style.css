@@ -416,3 +416,14 @@ footer {
     padding: 3rem 1.5rem;
   }
 }
+.cta-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-secondary {
+  background: transparent;
+  border: 2px solid currentColor;
+}
