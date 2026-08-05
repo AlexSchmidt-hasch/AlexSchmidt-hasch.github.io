@@ -1,24 +1,15 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | Alex Schmidt</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="alternate icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
 </head>
 <body>
 
   <nav class="navbar">
-    <a href="index.html" class="nav-name">Alex Schmidt</a>
+    <div class="nav-name">Alex Schmidt</div>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="projects.html">Projects</a></li>
@@ -37,15 +28,44 @@
       </p>
     </section>
 
-    <section class="contact-links">
+    <section class="contact-form-section">
+      <form id="contact-form" class="contact-form">
 
-      <a href="mailto:haschmidtky@gmail.com" class="contact-card">
-        <span class="contact-icon">✉</span>
-        <div>
-          <span class="contact-type">Email</span>
-          <span class="contact-value">haschmidtky@gmail.com</span>
+        <div class="form-field">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required>
         </div>
-      </a>
+
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-field">
+          <label for="reason">Reason for Contact</label>
+          <select id="reason" name="reason" required>
+            <option value="" disabled selected>Select one</option>
+            <option value="Internship / Job Opportunity">Internship / Job Opportunity</option>
+            <option value="Question about a project">Question about a project</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+
+        <!-- Honeypot field: invisible to real visitors, catches spam bots -->
+        <input type="text" name="_gotcha" class="form-honeypot" tabindex="-1" autocomplete="off">
+
+        <button type="submit" class="cta-button">Send Message</button>
+        <p id="form-status" class="form-status" role="status"></p>
+
+      </form>
+    </section>
+
+    <section class="contact-links">
 
       <a href="https://github.com/AlexSchmidt-hasch" target="_blank" class="contact-card">
         <span class="contact-icon">⌨</span>
@@ -68,9 +88,41 @@
   </main>
 
   <footer>
-    <img src="assets/logo-schm00ty.svg" alt="Schm00ty" style="height:28px; margin-bottom:0.75rem;">
     <p>&copy; 2026 Alex Schmidt. Built from scratch.</p>
   </footer>
+
+  <script>
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const data = new FormData(form);
+      status.textContent = 'Sending…';
+      status.className = 'form-status';
+
+      try {
+        const response = await fetch('https://formspree.io/f/xoeaqlkb', {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          form.reset();
+          status.textContent = "Message sent — I'll get back to you soon.";
+          status.className = 'form-status success';
+        } else {
+          status.textContent = 'Something went wrong. Try emailing me directly instead.';
+          status.className = 'form-status error';
+        }
+      } catch (error) {
+        status.textContent = 'Something went wrong. Try emailing me directly instead.';
+        status.className = 'form-status error';
+      }
+    });
+  </script>
 
 </body>
 </html>
